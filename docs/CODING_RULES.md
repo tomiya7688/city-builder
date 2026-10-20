@@ -132,7 +132,7 @@ City Builder は [UPD Design](https://github.com/tomiya7688/upd-design) に従�
 
 ## 6. 自動検査と例外の扱い
 
-- UPD は [up​d-design のチェッカー](https://github.com/tomiya7688/upd-design/tree/main/tools) を将来的に CI へ組み込む。現時点ではプロジェクトに検査対象コードがなく、検査・CI は **未導入**。
+- UPD は [upd-design のチェッカー](https://github.com/tomiya7688/upd-design/tree/main/tools) を将来的に CI へ組み込む。現時点ではプロジェクトに検査対象コードがなく、検査・CI は **未導入**。
 - 現在の UPD チェッカーは Kotlin の import 等の一部を検出するが、すべての責務違反を検出できるわけではない。Java を含む完全なチェックが導入済みとはみなさない。
 - 継承・オーバーロード・final・ネスト等も、言語ごとに静的解析ルールを実装・検証するまではレビューで確認する。
 - ルール違反を「性能のため」等の理由で黙認しない。衝突する要求があれば設計を見直し、必要なら先にルールの変更を議論する。
