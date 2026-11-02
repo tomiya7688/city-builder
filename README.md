@@ -28,11 +28,14 @@ Cities: Skylines に近い街づくり体験を目指しつつ、人口や都市
 ## ドキュメント
 
 - [シミュレーション設計](docs/SIMULATION_DESIGN.md) — ID 集団・State・移動要求・横断歩道・時間的 LOD・整合性
+- [共通実装仕様](docs/IMPLEMENTATION_SPEC.md) — 共通モデル・Stateとイベント・UPD境界・正しさの契約
+- [実装ロードマップ](docs/IMPLEMENTATION_ROADMAP.md) — Phase 0〜3、依存関係と実証シナリオ
+- [機能バックログ（Issues）](https://github.com/tomiya7688/city-builder/issues) — 都市機能48件とコア実装・検証Issue
 - [開発・オブジェクト指向ルール](docs/CODING_RULES.md) — 継承・オーバーロード・final・責務・ネスト・カプセル化・UPD
 - [AGENTS.md](AGENTS.md) — コード生成やレビューでも参照する開発上の入口
 
 ## 現状
 
-**企画・設計段階**。ゲームの実装、描画基盤、具体的な性能目標、プラットフォームは今後決める。まず小規模な State 遷移エンジンで大量の ID・到達イベント・集団分割を検証する。
+**企画・仕様策定段階**。都市機能48件はIssueごとに状態・共有計算・イベント・依存・受入条件を記載済み。実装・ベンチマークは未完了。Phase0の基盤Issue #61〜#67から最小のState遷移エンジンを実証する。
 
 ライセンスその他の公開条件は未定。
