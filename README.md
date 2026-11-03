@@ -27,6 +27,19 @@ Cities: Skylines に近い街づくり体験を目指しつつ、人口や都市
 
 ## ドキュメント
 
+### ゲーム内容の完成形
+
+- [完成版ゲーム設計 v1.0](docs/GAME_DESIGN.md) — 遊び方・完成範囲・ゲームモード・進行方針
+- [地形・建設・ゾーニング](docs/WORLD_CONSTRUCTION.md) — マップ・道路/歩道・用途区画・建物成長
+- [住民・経済・財政](docs/POPULATION_ECONOMY.md) — 住民/世帯・通勤・産業・消費・税収
+- [交通と公共交通](docs/TRANSPORT_GAMEPLAY.md) — 自動車・徒歩・バス・鉄道・地下鉄・物流
+- [都市インフラ・公共サービス・環境](docs/CITY_SERVICES_ENVIRONMENT.md) — 電力・上下水・医療・災害
+- [UI・操作・保存](docs/PLAYER_EXPERIENCE.md) — 建設UI・情報レイヤー・日英対応・セーブ/ロード
+- [コンテンツ・アンロック・シナリオ](docs/CONTENT_PROGRESSION.md) — 施設カタログと5本のシナリオ
+- [バランス・性能・完成判定](docs/GAME_BALANCE_RELEASE.md) — 数値・品質ゲート・E2Eシナリオ
+
+### エンジン・実装規約
+
 - [シミュレーション設計](docs/SIMULATION_DESIGN.md) — ID 集団・State・移動要求・横断歩道・時間的 LOD・整合性
 - [共通実装仕様](docs/IMPLEMENTATION_SPEC.md) — 共通モデル・Stateとイベント・UPD境界・正しさの契約
 - [ランタイム実行契約](docs/RUNTIME_PROTOCOL.md) — ID正規状態・最早到着バッチ・同時刻イベント・予約失効
@@ -41,6 +54,6 @@ Cities: Skylines に近い街づくり体験を目指しつつ、人口や都市
 
 ## 現状
 
-**企画・仕様策定段階**。都市機能48件はIssueごとに状態・共有計算・イベント・依存・受入条件を記載済み。実装・ベンチマークは未完了。Phase0の基盤Issue #61〜#67から最小のState遷移エンジンを実証する。
+**完成品のゲームデザインをv1.0として具体化した設計段階**。ゲーム内容・都市機能・画面・シナリオ・数値の初期値・完成判定は文書化済み。都市機能48件はIssueごとに状態・共有計算・イベント・依存・受入条件を記載済み。実装・性能測定・QAは未完了であり、まずPhase0の基盤Issue #61〜#67から最小のState遷移エンジンを実証する。
 
 ライセンスその他の公開条件は未定。
