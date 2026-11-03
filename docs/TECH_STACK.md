@@ -23,7 +23,7 @@
 
 ## 2. プロジェクトモジュール案
 
-\`\`\`text
+```text
 :shared-contracts       Immutable DTO / ID値 / コマンドと結果の契約だけ
 :process:core           ID・正規State・集団・SimClock・イベント・容量予約
 :process:transport      道路/徒歩/車両/公共交通のルール
@@ -32,9 +32,9 @@
 :ui                     CityViewの表示・カメラ・UI操作・音
 :desktop                起動と依存組立だけ（都市ルールを持たない）
 :benchmark              ヘッドレスの正しさ・性能比較
-\`\`\`
+```
 
-実装の簡易化のため、最初は\`:process:core\`と\`:process:transport\`などを同一ビルドモジュールにまとめてよい。ただし**UPDの責務境界はファイル/パッケージの置き方に関わらず守る**。
+実装の簡易化のため、最初は`:process:core`と`:process:transport`などを同一ビルドモジュールにまとめてよい。ただし**UPDの責務境界はファイル/パッケージの置き方に関わらず守る**。
 
 ### 依存方向
 
@@ -46,7 +46,7 @@
 
 ## 3. 重要なスレッド境界
 
-\`\`\`text
+```text
 Process確定スレッド
     ↓ 読み取り専用のCityView/WorldSnapshot
 UI/描画スレッド (libGDX render)
@@ -54,7 +54,7 @@ UI/描画スレッド (libGDX render)
 Process確定スレッド
 
 Process要求 → Data I/O worker → 結果 → Process → UI
-\`\`\`
+```
 
 - Processの**唯一の正規WorldState**は描画/IOスレッドが直接書き換えられない。
 - 画面描画は二重バッファまたは不変スナップショットから読み取る。カメラが動いても論理Stateを進めたり時刻を変えない。
