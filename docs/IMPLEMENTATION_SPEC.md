@@ -156,7 +156,7 @@ GroupMembers + GroupKey + 現時刻
 
 ## 10. 仕様の改訂
 
-共通契約を変える場合はこの文書と影響するFeature Issueの差分を同時に変更する。技術選定（言語割当・描画エンジン・並列化方式・DB等）は計測と要件に基づき別途決定する。独自の実装詳細をIssueに重複コピーして仕様を分岐させない。
+共通契約を変える場合はこの文書と影響するFeature Issueの差分を同時に変更する。技術構成は [TECH_STACK](TECH_STACK.md) で Java 21 + Kotlin / Gradle / libGDX + LWJGL3 を初期候補に定める。描画エンジンの採否、具体的な依存版、並列化方式、DB等は計測と要件に基づき確定する。独自の実装詳細をIssueに重複コピーして仕様を分岐させない。
 
 - **共通契約**: 本書。具体的な時間・到着順・容量・一貫性は[RUNTIME_PROTOCOL](RUNTIME_PROTOCOL.md)。
 - **交通の詳細ルール**: [TRAFFIC_VERTICAL_SLICE](TRAFFIC_VERTICAL_SLICE.md)。
