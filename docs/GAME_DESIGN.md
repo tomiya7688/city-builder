@@ -2,7 +2,7 @@
 
 > **状態：完成形の仕様を定義した設計ベースライン。ゲームは未実装。** 性能・バランス・必要ハードウェアは目標値であり、検証結果ではない。
 >
-> この文書は「完成したゲームは何ができ、どう遊ぶか」の正本。詳細ルールは [都市マップと建設](WORLD_CONSTRUCTION.md)、[住民・産業・財政](POPULATION_ECONOMY.md)、[交通と移動](TRANSPORT_GAMEPLAY.md)、[インフラ・公共サービス・環境](CITY_SERVICES_ENVIRONMENT.md)、[UI・操作・保存](PLAYER_EXPERIENCE.md)、[コンテンツと進行](CONTENT_PROGRESSION.md)、[バランスと完成判定](GAME_BALANCE_RELEASE.md) に分割する。ランタイムの正本は [IMPLEMENTATION_SPEC](IMPLEMENTATION_SPEC.md) / [RUNTIME_PROTOCOL](RUNTIME_PROTOCOL.md)、コード規約は [CODING_RULES](CODING_RULES.md)。数値が衝突した場合、ゲームルールは各詳細文書、時刻・ID・イベントの動作意味はランタイム契約を優先。
+> この文書は「完成したゲームは何ができ、どう遊ぶか」の正本。詳細ルールは [都市マップと建設](WORLD_CONSTRUCTION.md)、[住民・産業・財政](POPULATION_ECONOMY.md)、[交通と移動](TRANSPORT_GAMEPLAY.md)、[インフラ・公共サービス・環境](CITY_SERVICES_ENVIRONMENT.md)、[UI・操作・保存](PLAYER_EXPERIENCE.md)、[コンテンツと進行](CONTENT_PROGRESSION.md)、[バランスと完成判定](GAME_BALANCE_RELEASE.md) に分割する。ランタイムの正本は [IMPLEMENTATION_SPEC](IMPLEMENTATION_SPEC.md) / [RUNTIME_PROTOCOL](RUNTIME_PROTOCOL.md)、コード規約は [CODING_RULES](CODING_RULES.md)。数値が衝突した場合、ゲームルールは各詳細文書、時刻・ID・イベントの動作意味はランタイム契約を優先。全Issueへの対応は [設計トレーサビリティ](DESIGN_TRACEABILITY.md)、JVM/描画の初期案は [TECH_STACK](TECH_STACK.md) を参照。
 
 ## 1. ゲームの約束
 
