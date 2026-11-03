@@ -4,6 +4,8 @@ City Builder にコードや設計文書を追加・編集する際は、この�
 
 - [ゲームの完成形・プレイヤー要件](docs/GAME_DESIGN.md)
 - [機能とIssueの対応表](docs/DESIGN_TRACEABILITY.md)
+- 数値モデル/バランス・実装時: [QUANTITATIVE_MODEL](docs/QUANTITATIVE_MODEL.md)
+- State遷移/イベント追加時: [STATE_EVENT_CATALOG](docs/STATE_EVENT_CATALOG.md)
 - 対象機能のゲームルール: [地形と建設](docs/WORLD_CONSTRUCTION.md) / [住民と経済](docs/POPULATION_ECONOMY.md) / [交通](docs/TRANSPORT_GAMEPLAY.md) / [公共サービスと環境](docs/CITY_SERVICES_ENVIRONMENT.md)
 - UI/コンテンツ/完成判定: [PLAYER_EXPERIENCE](docs/PLAYER_EXPERIENCE.md) / [CONTENT_PROGRESSION](docs/CONTENT_PROGRESSION.md) / [GAME_BALANCE_RELEASE](docs/GAME_BALANCE_RELEASE.md)
 - [設計の正本](docs/SIMULATION_DESIGN.md)
