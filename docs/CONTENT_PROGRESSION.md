@@ -63,11 +63,11 @@
 
 施設テンプレートの必須フィールド:
 
-\`id, category, displayNameKey, descriptionKey, iconKey, footprint, connections, buildCost, upkeepPerDay, capacities, utilityDemand, pollutionOutput, allowedTerrain, unlockRuleId, visualLodSet, behaviorRuleIds, dataVersion\`
+`id, category, displayNameKey, descriptionKey, iconKey, footprint, connections, buildCost, upkeepPerDay, capacities, utilityDemand, pollutionOutput, allowedTerrain, unlockRuleId, visualLodSet, behaviorRuleIds, dataVersion`
 
-- \`id\` はセーブデータに使うため安定。別IDへ変更する際は移行規則を定義する。
-- \`capacities\`、需要、コストは単位（人、世帯、MW、m³/day、Credit/day等）を明示。
-- 行動はコードを埋め込む任意実行スクリプトではなく、ホワイトリスト化した \`behaviorRuleIds\` を参照する。
+- `id` はセーブデータに使うため安定。別IDへ変更する際は移行規則を定義する。
+- `capacities`、需要、コストは単位（人、世帯、MW、m³/day、Credit/day等）を明示。
+- 行動はコードを埋め込む任意実行スクリプトではなく、ホワイトリスト化した `behaviorRuleIds` を参照する。
 - 読込失敗・参照欠損・負値/範囲外は安全なバリデーションエラー。実行中に都合のよい0へ黙って変換しない。
 - v1の外部追加コンテンツは**データと画像/音のコンテンツパック**に限る。任意のJVMバイトコード/スクリプト実行、ファイルシステム外へのアクセスを初期の公開Mod APIとして提供しない。
 - コンテンツパック名・バージョン・ハッシュをセーブへ記録し、読込時に不足と非互換を表示する。
