@@ -5,6 +5,7 @@ City Builder にコードや設計文書を追加・編集する際は、この�
 - [設計の正本](docs/SIMULATION_DESIGN.md)
 - [共通の実装契約](docs/IMPLEMENTATION_SPEC.md)
 - ランタイム・イベント/予約・集団の実装時: [ランタイム実行契約](docs/RUNTIME_PROTOCOL.md)
+- JVMの型/インターフェース/モジュールの設計時: [コンポーネント設計案](docs/JVM_COMPONENT_DESIGN.md)
 - 横断歩道・道路・車両/歩行者の実装時: [交通の縦断仕様](docs/TRAFFIC_VERTICAL_SLICE.md)
 - 人口・建物・インフラ・経済の実装時: [都市システム統合仕様](docs/DOMAIN_INTEGRATION.md)
 - テスト・ベンチマーク時: [検証計画](docs/VALIDATION_PLAN.md)
