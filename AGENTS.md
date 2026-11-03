@@ -2,6 +2,9 @@
 
 City Builder にコードや設計文書を追加・編集する際は、このファイルと下記の正本を必ず読む。
 
+- [ゲームの完成形・プレイヤー要件](docs/GAME_DESIGN.md)
+- 対象機能のゲームルール: [地形と建設](docs/WORLD_CONSTRUCTION.md) / [住民と経済](docs/POPULATION_ECONOMY.md) / [交通](docs/TRANSPORT_GAMEPLAY.md) / [公共サービスと環境](docs/CITY_SERVICES_ENVIRONMENT.md)
+- UI/コンテンツ/完成判定: [PLAYER_EXPERIENCE](docs/PLAYER_EXPERIENCE.md) / [CONTENT_PROGRESSION](docs/CONTENT_PROGRESSION.md) / [GAME_BALANCE_RELEASE](docs/GAME_BALANCE_RELEASE.md)
 - [設計の正本](docs/SIMULATION_DESIGN.md)
 - [共通の実装契約](docs/IMPLEMENTATION_SPEC.md)
 - ランタイム・イベント/予約・集団の実装時: [ランタイム実行契約](docs/RUNTIME_PROTOCOL.md)
@@ -31,7 +34,7 @@ City Builder にコードや設計文書を追加・編集する際は、この�
 
 - 変更先の UPD 層、クラスと関数の責務を説明する。
 - 追加した State・イベント・リクエストの発生条件、分割する ID、再開条件を明記する。
-- 変更対象Issueにある状態/ID、共有計算、イベント、依存、検証シナリオを参照し、共通実装契約と該当する詳細仕様との差異を確認する。
+- 変更対象Issueにある状態/ID、共有計算、イベント、依存、検証シナリオと**プレイヤーから見える機能の完成仕様**を照合し、共通実装契約と詳細仕様との差異を確認する。
 - ID の一意性、集団の分割・統合、通行容量、到達時刻、カメラ切り替えの整合性を確認する。
 - 新しいテストを提案・実行し、実行していないテストは実施済みと書かない。
 - 不明な技術選定は既成事実にせず、設計上の候補として扱う。
