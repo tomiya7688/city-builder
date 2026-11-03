@@ -29,6 +29,10 @@ Cities: Skylines に近い街づくり体験を目指しつつ、人口や都市
 
 - [シミュレーション設計](docs/SIMULATION_DESIGN.md) — ID 集団・State・移動要求・横断歩道・時間的 LOD・整合性
 - [共通実装仕様](docs/IMPLEMENTATION_SPEC.md) — 共通モデル・Stateとイベント・UPD境界・正しさの契約
+- [ランタイム実行契約](docs/RUNTIME_PROTOCOL.md) — ID正規状態・最早到着バッチ・同時刻イベント・予約失効
+- [交通・横断歩道の縦断仕様](docs/TRAFFIC_VERTICAL_SLICE.md) — 歩行者/車の待機と進入・交差点の競合処理
+- [都市システム統合仕様](docs/DOMAIN_INTEGRATION.md) — 電力/水/ごみ/税/住民などの共有率計算と状態変化
+- [検証計画](docs/VALIDATION_PLAN.md) — 正しさと大規模性能の比較条件
 - [実装ロードマップ](docs/IMPLEMENTATION_ROADMAP.md) — Phase 0〜3、依存関係と実証シナリオ
 - [機能バックログ（Issues）](https://github.com/tomiya7688/city-builder/issues) — 都市機能48件とコア実装・検証Issue
 - [開発・オブジェクト指向ルール](docs/CODING_RULES.md) — 継承・オーバーロード・final・責務・ネスト・カプセル化・UPD
