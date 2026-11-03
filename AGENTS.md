@@ -3,12 +3,13 @@
 City Builder にコードや設計文書を追加・編集する際は、このファイルと下記の正本を必ず読む。
 
 - [ゲームの完成形・プレイヤー要件](docs/GAME_DESIGN.md)
+- [機能とIssueの対応表](docs/DESIGN_TRACEABILITY.md)
 - 対象機能のゲームルール: [地形と建設](docs/WORLD_CONSTRUCTION.md) / [住民と経済](docs/POPULATION_ECONOMY.md) / [交通](docs/TRANSPORT_GAMEPLAY.md) / [公共サービスと環境](docs/CITY_SERVICES_ENVIRONMENT.md)
 - UI/コンテンツ/完成判定: [PLAYER_EXPERIENCE](docs/PLAYER_EXPERIENCE.md) / [CONTENT_PROGRESSION](docs/CONTENT_PROGRESSION.md) / [GAME_BALANCE_RELEASE](docs/GAME_BALANCE_RELEASE.md)
 - [設計の正本](docs/SIMULATION_DESIGN.md)
 - [共通の実装契約](docs/IMPLEMENTATION_SPEC.md)
 - ランタイム・イベント/予約・集団の実装時: [ランタイム実行契約](docs/RUNTIME_PROTOCOL.md)
-- JVMの型/インターフェース/モジュールの設計時: [コンポーネント設計案](docs/JVM_COMPONENT_DESIGN.md)
+- JVMの型/インターフェース/モジュールの設計時: [技術構成](docs/TECH_STACK.md) / [コンポーネント設計案](docs/JVM_COMPONENT_DESIGN.md)
 - 横断歩道・道路・車両/歩行者の実装時: [交通の縦断仕様](docs/TRAFFIC_VERTICAL_SLICE.md)
 - 人口・建物・インフラ・経済の実装時: [都市システム統合仕様](docs/DOMAIN_INTEGRATION.md)
 - テスト・ベンチマーク時: [検証計画](docs/VALIDATION_PLAN.md)
