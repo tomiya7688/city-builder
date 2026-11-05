@@ -101,7 +101,7 @@ GeneratorStopped / TransmissionDisconnected
   → WaterComponentRebalanced / ProductionRateChanged
   → AffectedCitizenGroups, FirmGroups, TransitTripGroups
   → Demand/TaxBase/ServiceScoreChanged
-  → 下一評価境界で満足度・転入と財政へ反映
+  → 次の評価時点で満足度・転入と財政へ反映
 ```
 
 - 電力は接続成分の需要量と発電出力を**同じ時刻に集約**して割当。停止した全建物を毎フレーム更新しない。
