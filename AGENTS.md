@@ -2,6 +2,8 @@
 
 City Builder にコードや設計文書を追加・編集する際は、このファイルと下記の正本を必ず読む。
 
+- **[正式な詳細設計書（CB-SDD）](docs/design/README.md)** — 実装変更時は対象章のAPI・不変条件・失敗時動作・試験を確認。
+
 - [ゲームの完成形・プレイヤー要件](docs/GAME_DESIGN.md)
 - [機能とIssueの対応表](docs/DESIGN_TRACEABILITY.md)
 - 数値モデル/バランス・実装時: [QUANTITATIVE_MODEL](docs/QUANTITATIVE_MODEL.md)
