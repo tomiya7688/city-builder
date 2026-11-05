@@ -4,6 +4,8 @@
 >
 > 既存の配布物署名/Attestationタスク [#1](https://github.com/tomiya7688/city-builder/issues/1) はP0であり、**配布・リリース時の必須ゲート**として維持する。試作開発を止めることと同義ではない。
 
+**Phase0のAPI・データモデル・実行アルゴリズムと試験:** [詳細設計書（CB-SDD）](design/README.md) 第2〜4・6〜7章に従う。都市機能を追加する場合は第5章を参照。
+
 ## Phase 0: シミュレーションの最小縦断実証
 
 具体的な実行意味は[ランタイム実行契約](RUNTIME_PROTOCOL.md)、[交通の縦断仕様](TRAFFIC_VERTICAL_SLICE.md)、検証は[VALIDATION_PLAN](VALIDATION_PLAN.md)を参照する。
