@@ -18,14 +18,15 @@ quantity(t1) = quantity(t0) + ratePerDay × elapsedDays
 
 ## 2. 住宅需要と転入の定量モデル
 
-各地区dとゲーム日Tについて:
+住宅需要は**住戸という在庫（戸数）**、転入・世帯分離は**時間当たりの発生率（世帯/ゲーム日）**として区別する。日当たりの値と空き住戸数を単純に引き算しない。
+
+各地区dについて、初期の予測期間 `demandHorizonDays = 7`（調整可能）を使う。
 
 ```text
 freeHomes_d = max(0, housingCapacity_d - occupiedHouseholds_d - reservedHomes_d)
 
-jobOpenings_d = Σ availableJobSlots reachable within travelCostBudget
-
-baseDesire_d = externalMigrationPotential_d + newHouseholdFormation_d
+externalMigrationRate_d = externalMigrationPotential_d // 世帯/ゲーム日
+formationRate_d = householdFormationPotential_d        // 既存市民の世帯分離/ゲーム日
 
 attraction_d = clamp(
     0.35 × satisfaction_d/100 +
@@ -36,23 +37,42 @@ attraction_d = clamp(
     0, 1
 )
 
-wantedNewHouseholds_d = ceil(baseDesire_d × attraction_d)
+wantedHomes_d = ceil(
+  (externalMigrationRate_d + formationRate_d)
+  × attraction_d × demandHorizonDays
+)
 
-housingShortage_d = max(0, wantedNewHouseholds_d + unhousedHouseholds_d - freeHomes_d)
-housingDemandScore_d = clamp(100 × housingShortage_d / max(1, wantedNewHouseholds_d + unhousedHouseholds_d), 0, 100)
-
-admittedHouseholds_d = min(
-    freeHomes_d,
-    max(0, floor(wantedNewHouseholds_d × migrationSpeedPerDay))
+housingShortage_d = max(0, wantedHomes_d + unhousedHouseholds_d - freeHomes_d)
+housingDemandScore_d = clamp(
+  100 × housingShortage_d / max(1, wantedHomes_d + unhousedHouseholds_d),
+  0, 100
 )
 ```
 
-- `externalMigrationPotential` は外部接続/都市人口/就業余力の関数であり、人口0でも住宅と職ができれば正の値を取り得る。都市が永遠に人口0のまま止まらないようにする。
-- `migrationSpeedPerDay` 初期案0.20。世帯ごとの収入・人数・希望勤務地などの差分を確定IDに割り当てる。
-- 転入希望世帯は住戸の予約に成功した場合だけCitizenIdを生成・入居。満室なら人数だけ増やさない。
-- 職がない場合でも小規模の転入・休職世帯は存在し得るが、雇用不足が続けば転出が増える。
-- 出生/死亡/転出は年齢・健康・満足度・雇用を使う別のイベント系列。人口増減を転入式にすべて押し込まない。
-- 転居時は新住戸予約後に旧住戸を解放。世帯IDの住所を途中二重更新しない。
+**実際の入居/転入は需要バーの値から直接生成しない。** その日の候補発生は固定小数点の端数を蓄積して整数候補にする。
+
+```text
+migrationExpectation_d =
+  migrationCarry_d + externalMigrationRate_d × attraction_d × migrationSpeedPerDay
+migrationCandidates_d = floor(migrationExpectation_d)
+migrationCarry_d = migrationExpectation_d - migrationCandidates_d
+
+formationExpectation_d =
+  formationCarry_d + formationRate_d × attraction_d × formationSpeedPerDay
+formationCandidates_d = floor(formationExpectation_d)
+formationCarry_d = formationExpectation_d - formationCandidates_d
+```
+
+- `migrationSpeedPerDay` 初期案0.20、`formationSpeedPerDay` はゲームバランスで定める調整値。率に端数があっても毎日切り捨てて失わない。**例：毎日0.2世帯の期待値なら5日で1世帯候補を発生できる。**
+- 住宅空き容量と候補の優先順位（候補発生時刻→固定seedによる安定順）で入居を決める。空きのない候補は都市内の待機世帯または域外の未入居希望として別管理し、二重の住民IDを作らない。長期に溜まる域外候補には待機期限/離脱率を設ける（係数は調整値）。
+- **域外からの転入**は住戸を予約した場合だけ新しい`CitizenId`/`HouseholdId`を生成する。
+- **既存市民の世帯分離**は、既存のCitizenIdを新しいHouseholdIdへ移す。人口を増やさず、元の世帯と新しい世帯の所属・住戸予約を一度に確定する。空き住戸がなければ保留する。
+- `externalMigrationPotential` は域外道路接続・雇用余力・人口規模等の関数。人口0でも住宅/職が揃えば正の値になり得るようにし、最初の入居が永久に発生しない構造を避ける。
+- 職がない場合も小規模な転入・失業世帯があり得るが、長期の雇用不足は転出率へ影響する。
+- 出生/死亡/転出は年齢・医療・満足度・雇用を使う独立イベント列。出生だけが人口+1、既存市民の世帯分離では人口が増えない。
+- 転居時は新住戸予約後に旧住戸を解放。HouseholdIdとCitizenIdの参照が同時に二重居住にならない。
+
+受入試験：`externalMigrationRate=1世帯/日、attraction=1、migrationSpeedPerDay=0.2` で、空き住戸がある場合に5日経過した時点で少なくとも1世帯候補が生じること。既存市民の世帯分離のみを発生させた場合、世帯数は増えるが人口は変化しないこと。固定seed・同じ論理時間で再現可能なこと。
 
 ## 3. 商業・工業・オフィスの需要
 
